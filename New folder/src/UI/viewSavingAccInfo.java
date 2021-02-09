@@ -104,6 +104,7 @@ public class viewSavingAccInfo extends javax.swing.JPanel {
         lblZipcode.setText("Account Balance");
 
         txtAccountType.setEditable(false);
+        txtAccountType.setText("Saving");
         txtAccountType.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 181, 204)));
         txtAccountType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

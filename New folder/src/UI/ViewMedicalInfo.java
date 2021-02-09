@@ -107,7 +107,7 @@ public class ViewMedicalInfo extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 188, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Medical Information");
+        jLabel1.setText("Medical Record");
 
         lblMedicalRecordNumber.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         lblMedicalRecordNumber.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -174,13 +174,13 @@ public class ViewMedicalInfo extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlergy2ActionPerformed
 
-    private void txtAlergy3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlergy3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAlergy3ActionPerformed
-
     private void txtAlergy4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlergy4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAlergy4ActionPerformed
+
+    private void txtAlergy3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAlergy3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAlergy3ActionPerformed
 
 
     
