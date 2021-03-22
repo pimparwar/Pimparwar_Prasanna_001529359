@@ -28,7 +28,7 @@ public class Clinic {
 
         boolean quit = false;
         while (!quit) {
-            System.out.println("Enter ur choice: press 7 to print main menu again 6 to exit");
+            System.out.println("Enter ur choice: press 8 to print main menu again & 7 to exit");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
