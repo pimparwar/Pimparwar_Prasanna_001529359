@@ -197,8 +197,8 @@ public class ViewLicenseInfo extends javax.swing.JPanel {
     txtIssuedDate.setText(license.getIssuedDate());
     txtdateOfExpiration.setText(license.getDateOfExpiration());
     txtBloodType.setText(license.getBloodType());
-  // uploadedImage= license.imageIcon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(),Image.SCALE_SMOOTH);
-     //  license.imageIcon.setImage(uploadedImage);
+  
+      // license.imageIcon.setImage(license.imageIcon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(),Image.SCALE_SMOOTH));
     lblImage.setIcon(license.imageIcon);
 }
 }

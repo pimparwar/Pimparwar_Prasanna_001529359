@@ -220,8 +220,8 @@ public class CreateLicenseInfo extends javax.swing.JPanel {
         Image getAbsolutePath=null;
         
         license.imageIcon = new ImageIcon(image.getAbsolutePath());
-       // uploadedImage= imageIcon.getImage().getScaledInstance(lblImage.getWidth(),lblImage.getHeight(),Image.SCALE_SMOOTH);
-       // license.imageIcon.setImage(uploadedImage);
+    //   Image uploadedImage= image.getScaledInstance(150,200,Image.SCALE_SMOOTH);
+      //  license.imageIcon.setImage(uploadedImage);
      //   String image= this.image.getAbsolutePath();
        
 
