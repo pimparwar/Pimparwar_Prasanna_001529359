@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author prasanna
  */
 public class MenuDirectory {
-     private ArrayList<Menu> menuDirectory;
+    private ArrayList<Menu> menuDirectory;
     
     public MenuDirectory() {
         menuDirectory = new ArrayList();
@@ -26,8 +26,8 @@ public class MenuDirectory {
         this.menuDirectory = menuDirectory;
     }
     
-    public Menu addNewItem(String foodItemName, double foodItemPrice, String restaurantName) {
-        Menu menu = new Menu(foodItemName, restaurantName,foodItemPrice);
+    public Menu newItem(String itemName, double price, String res) {
+        Menu menu = new Menu(itemName, price, res);
         menuDirectory.add(menu);
         return menu;
     }

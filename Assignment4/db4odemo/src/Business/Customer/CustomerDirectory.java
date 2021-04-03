@@ -12,8 +12,9 @@ import java.util.ArrayList;
  * @author harold
  */
 public class CustomerDirectory {
-        private ArrayList<Customer> customerDirectory;
-         
+    
+    private ArrayList<Customer> customerDirectory;
+    
     public CustomerDirectory() {
         
         customerDirectory = new ArrayList();
@@ -28,22 +29,23 @@ public class CustomerDirectory {
         this.customerDirectory = customerDirectory;
     }
     
-    public Customer newCustomer(String customerName, String email, String pN, int age, String homeAddress, String userName){
-        Customer c = new Customer(customerName,pN, email,  userName, homeAddress, age);
-        customerDirectory.add(c);
-        return c;
+    public Customer newCustomer(String name, String email, String phoneNumber, int age, String homeAddress, String userName){
+        Customer customer = new Customer(name, email, phoneNumber, age, homeAddress, userName);
+        customerDirectory.add(customer);
+        return customer;
     }
     
-    public void removeCustomer(Customer c){
-        customerDirectory.remove(c);
+    public void removeCustomer(Customer customer){
+        customerDirectory.remove(customer);
     }
     
-    public Customer getCustomer(String customerName){
+    public Customer getCustomer(String name){
         for(Customer customer: customerDirectory){
-            if(customer.getCustomerName().equalsIgnoreCase(customerName)){
+            if(customer.getName().equalsIgnoreCase(name)){
                 return customer;
             }
         }
         return null;
     }
+    
 }

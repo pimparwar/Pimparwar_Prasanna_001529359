@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * @author harold
  */
 public class RestaurantDirectory {
-      private ArrayList<Restaurant> restaurantDirectory;
+    
+    private ArrayList<Restaurant> restaurantDirectory;
     
     public RestaurantDirectory() {
         restaurantDirectory = new ArrayList();
@@ -26,20 +27,20 @@ public class RestaurantDirectory {
         this.restaurantDirectory = restaurantDirectory;
     }
     
-    public Restaurant newRestaurant(String restaurantName, String restaurantAddress, String managerName, String phoneNumber) {
-        Restaurant r = new Restaurant(restaurantName, restaurantAddress, managerName, phoneNumber);
-        restaurantDirectory.add(r);
-     //   System.out.println(restaurantDirectory.size() + "New Res");
-        return r;
+    public Restaurant newRestaurant(String name, String address, String mName, String phoneNumber) {
+        Restaurant restaurant = new Restaurant(name, address, mName, phoneNumber);
+        restaurantDirectory.add(restaurant);
+        System.out.println(restaurantDirectory.size() + "New Res");
+        return restaurant;
     }
     
-    public void removeRestaurant(Restaurant r){
-        restaurantDirectory.remove(r);
+    public void removeRestaurant(Restaurant restaurant){
+        restaurantDirectory.remove(restaurant);
     }
     
-    public Restaurant getRestaurant(String restaurantName) {
+    public Restaurant getRestaurant(String name) {
         for(Restaurant r : restaurantDirectory) {
-            if(r.getRestaurantName().equals(restaurantName)) {
+            if(r.getRestaurantName().equals(name)) {
                 return r;
             }
         }

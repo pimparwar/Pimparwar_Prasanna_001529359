@@ -6,7 +6,7 @@
 package Business.Order;
 
 import Business.Customer.Customer;
-
+import Business.DeliveryMan.DeliveryMan;
 import Business.Menu.Menu;
 import Business.Restaurant.Restaurant;
 import Business.WorkQueue.WorkRequest;
@@ -15,17 +15,27 @@ import Business.WorkQueue.WorkRequest;
  *
  * @author prasanna
  */
-public class Order extends WorkRequest{
-   
+public class Order extends WorkRequest {
+    
     private String orderId;
     private String orderStatus;
-    private Restaurant orderRestaurant;
-    private Customer orderCustomer;
-    private String orderDeliveryMan;
-     private Menu menu;
-    private int itemQuantity;
-    private String orderResult;
-    private boolean orderAssign;
+    private Restaurant restaurant;
+    private Customer customer;
+    private String deliveryMan;
+    private int quantity;
+    private Menu menu;
+    private String result;
+    private boolean assign;
+
+    public boolean isAssign() {
+        return assign;
+    }
+
+    public void setAssign(boolean assign) {
+        this.assign = assign;
+    }
+    
+    
 
     public String getOrderId() {
         return orderId;
@@ -43,28 +53,38 @@ public class Order extends WorkRequest{
         this.orderStatus = orderStatus;
     }
 
-    public Restaurant getOrderRestaurant() {
-        return orderRestaurant;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setOrderRestaurant(Restaurant orderRestaurant) {
-        this.orderRestaurant = orderRestaurant;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
-    public Customer getOrderCustomer() {
-        return orderCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setOrderCustomer(Customer orderCustomer) {
-        this.orderCustomer = orderCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public String getOrderDeliveryMan() {
-        return orderDeliveryMan;
+    public String getDeliveryMan() {
+        return deliveryMan;
     }
 
-    public void setOrderDeliveryMan(String orderDeliveryMan) {
-        this.orderDeliveryMan = orderDeliveryMan;
+    public void setDeliveryMan(String deliveryMan) {
+        this.deliveryMan = deliveryMan;
+    }
+
+    
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Menu getMenu() {
@@ -75,30 +95,19 @@ public class Order extends WorkRequest{
         this.menu = menu;
     }
 
-        
-    public int getItemQuantity() {
-        return itemQuantity;
+    public String getResult() {
+        return result;
     }
 
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
-    }
-
-    public String getOrderResult() {
-        return orderResult;
-    }
-
-    public void setOrderResult(String orderResult) {
-        this.orderResult = orderResult;
-    }
-
-    public boolean isOrderAssign() {
-        return orderAssign;
-    }
-
-    public void setOrderAssign(boolean orderAssign) {
-        this.orderAssign = orderAssign;
+    public void setResult(String result) {
+        this.result = result;
     }
     
+    
+    
+    @Override
+    public String toString() {
+        return orderId;
+    }
     
 }

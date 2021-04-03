@@ -13,7 +13,7 @@ public class SeatAssignment {
     
     Seat seat;
     CourseLoad courseload;
-    int marks=90;
+    int marks;
     
     
     public SeatAssignment(Seat s){

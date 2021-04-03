@@ -12,34 +12,33 @@ import java.util.ArrayList;
  * @author prasanna
  */
 public class OrderDirectory {
-   
+    private ArrayList<Order> orderDirectory;
     
-    private ArrayList<Order> orderList;
-
     public OrderDirectory() {
-        
+        orderDirectory = new ArrayList();
     }
 
-    public ArrayList<Order> getOrderList() {
-        return orderList;
+    public ArrayList<Order> getOrderDirectory() {
+        return orderDirectory;
     }
 
-    public void setOrderList(ArrayList<Order> orderList) {
-        this.orderList = orderList;
+    public void setOrderDirectory(ArrayList<Order> orderDirectory) {
+        this.orderDirectory = orderDirectory;
     }
     
-        public Order newOrder(){
+    public Order newOrder(){
         Order order = new Order();
-        orderList.add(order);
+        orderDirectory.add(order);
         return order;
     }
     
     public Order getOrderId(String id){
-        for(Order order: orderList){
+        for(Order order: orderDirectory){
             if(order.getOrderId().equals(id)){
                 return order;
             }
         }
         return null;
     }
+    
 }

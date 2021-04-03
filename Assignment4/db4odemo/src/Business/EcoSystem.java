@@ -20,18 +20,20 @@ import java.util.ArrayList;
  * @author MyPC1
  */
 public class EcoSystem extends Organization{
-     private OrderDirectory orderDirectory;
-    private MenuDirectory menuDirectory;
+    
     private static EcoSystem business;
     private RestaurantDirectory restaurantDirectory;
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private OrderDirectory orderDirectory;
+    private MenuDirectory menuDirectory;
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
+        
     }
 
     public OrderDirectory getOrderDirectory() {
@@ -49,6 +51,8 @@ public class EcoSystem extends Organization{
     public void setMenuDirectory(MenuDirectory menuDirectory) {
         this.menuDirectory = menuDirectory;
     }
+    
+    
 
     public RestaurantDirectory getRestaurantDirectory() {
         return restaurantDirectory;
@@ -91,18 +95,20 @@ public class EcoSystem extends Organization{
     }
     private EcoSystem(){
         super(null);
-        
-         customerDirectory = new CustomerDirectory();
+        customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new MenuDirectory();
         orderDirectory = new OrderDirectory();
+        
        // networkList=new ArrayList<Network>();
     }
 
     
     public boolean checkIfUserIsUnique(String userName){
-       //
+        //
        return false;
     }
+
+    
 }

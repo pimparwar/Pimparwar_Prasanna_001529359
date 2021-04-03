@@ -10,30 +10,37 @@ package Business.Customer;
  * @author harold
  */
 public class Customer {
-      private String customerName;
-    private String phoneNumber;
-      private String customerEmail;
     
-    private String userName; 
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private int age;
     private String homeAddress;
+    private String userName;
    
-        private int age;
-
-    public Customer(String customerName, String phoneNumber, String customerEmail, String userName, String homeAddress, int age) {
-        this.customerName = customerName;
-        this.phoneNumber = phoneNumber;
-        this.customerEmail = customerEmail;
-        this.userName = userName;
-        this.homeAddress = homeAddress;
+    public Customer(String name, String email, String phoneNumber, int age, String homeAddress, String userName) {
+        this.name = name;
+        this.email = email;
         this.age = age;
+        this.homeAddress = homeAddress;
+        this.userName = userName;
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getName() {
+        return name;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhoneNumber() {
@@ -44,20 +51,12 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public int getAge() {
+        return age;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getHomeAddress() {
@@ -68,16 +67,18 @@ public class Customer {
         this.homeAddress = homeAddress;
     }
 
-    public int getAge() {
-        return age;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-        
-   @Override
+    
+    @Override
     public String toString() {
         return userName;
-    }        
+    }
+    
+    
 }

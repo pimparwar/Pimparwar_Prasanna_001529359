@@ -5,7 +5,6 @@
  */
 package Business.Restaurant;
 
-import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
 
 /**
@@ -13,18 +12,28 @@ import Business.Menu.MenuDirectory;
  * @author harold
  */
 public class Restaurant {
-     private String restaurantName;
-    private String restaurantAddress;
+    private String restaurantName;
+    private String address;
     private String managerName;
     private String phoneNumber;
-    private Menu Menu;
-
-    public Restaurant(String restaurantName, String resAddress, String managerName, String phoneNumber) {
+    private MenuDirectory MenuDirectory;
+    
+    public Restaurant(String restaurantName, String address, String managerName, String phoneNumber) {
         this.restaurantName = restaurantName;
-        this.restaurantAddress = resAddress;
+        this.address = address;
         this.managerName = managerName;
         this.phoneNumber = phoneNumber;
     }
+
+    public MenuDirectory getMenuDirectory() {
+        return MenuDirectory;
+    }
+
+    public void setMenuDirectory(MenuDirectory MenuDirectory) {
+        this.MenuDirectory = MenuDirectory;
+    }
+    
+    
 
     public String getRestaurantName() {
         return restaurantName;
@@ -34,12 +43,12 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
-    public String getRestaurantAddress() {
-        return restaurantAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setRestaurantAddress(String restaurantAddress) {
-        this.restaurantAddress = restaurantAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getManagerName() {
@@ -57,17 +66,11 @@ public class Restaurant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    public Menu getMenu() {
-        return Menu;
-    }
-
-    public void setMenu(Menu Menu) {
-        this.Menu = Menu;
-    }
     
-     @Override
+    @Override
     public String toString() {
         return restaurantName;
     }
+
+    
 }

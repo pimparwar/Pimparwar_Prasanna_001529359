@@ -18,18 +18,13 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author prasanna
+ * @author raunak
  */
-
 public class CustomerRole extends Role{
-  
-    
-    
-   
 
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, MenuDirectory menuDirectory, DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory) {
-       return new CustomerAreaJPanel(business,userProcessContainer, account,   restaurantDirectory, deliveryManDirectory,customerDirectory, menuDirectory, orderDirectory);
+    
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
+        return new CustomerAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory);
     }
     
     

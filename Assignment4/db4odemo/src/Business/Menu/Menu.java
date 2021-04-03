@@ -5,29 +5,35 @@
  */
 package Business.Menu;
 
-
 /**
  *
  * @author prasanna
  */
 public class Menu {
-    
-    private String foodName;
+    private String itemName;
+    private double price;
     private String restaurantName;
-    private Double foodItemPrice;
-
-    public Menu(String foodName, String restaurantName, Double foodItemPrice) {
-        this.foodName = foodName;
+    
+    public Menu(String itemName, double price, String restaurantName) {
+        this.itemName = itemName;
+        this.price = price;
         this.restaurantName = restaurantName;
-        this.foodItemPrice = foodItemPrice;
     }
 
-    public String getFoodName() {
-        return foodName;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getRestaurantName() {
@@ -37,19 +43,12 @@ public class Menu {
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName;
     }
-
-    public Double getFoodItemPrice() {
-        return foodItemPrice;
-    }
-
-    public void setFoodItemPrice(Double foodItemPrice) {
-        this.foodItemPrice = foodItemPrice;
-    }
-
-
-   
-    }
-
-   
     
-
+    @Override
+    public String toString() {
+        return itemName;
+    }
+    
+    
+    
+}

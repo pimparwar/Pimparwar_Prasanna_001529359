@@ -4,22 +4,20 @@
  */
 package userinterface;
 
-import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
-import Business.DeliveryMan.DeliveryManDirectory;
-import Business.Menu.Menu;
-import Business.Menu.MenuDirectory;
-import Business.Order.OrderDirectory;
 
 import Business.Organization;
-import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
-
-
+import Business.Customer.CustomerDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Menu.MenuDirectory;
+import Business.Order.OrderDirectory;
+import Business.Restaurant.RestaurantDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -29,7 +27,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
-     */  
+     */
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private UserAccount userAccount;
     private JPanel userProcessContainer;
     private CustomerDirectory customerDirectory;
@@ -37,19 +37,21 @@ public class MainJFrame extends javax.swing.JFrame {
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
-    private EcoSystem system;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
     public MainJFrame() {
         initComponents();
+        setExtendedState(MainJFrame.MAXIMIZED_BOTH);
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
-     customerDirectory = new CustomerDirectory();
+        
+        customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new MenuDirectory();
         orderDirectory = new OrderDirectory();
+         
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,55 +66,57 @@ public class MainJFrame extends javax.swing.JFrame {
         loginJButton = new javax.swing.JButton();
         userNameJTextField = new javax.swing.JTextField();
         passwordField = new javax.swing.JPasswordField();
-        loginJLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         logoutJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        lblStreet = new javax.swing.JLabel();
-        lblStreet1 = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
         container = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jSplitPane1.setBorder(null);
+        jSplitPane1.setDividerSize(1);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(220, 452));
 
         loginJButton.setBackground(new java.awt.Color(255, 255, 255));
-        loginJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/button_login (4).png"))); // NOI18N
-        loginJButton.setAlignmentY(0.0F);
+        loginJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\admin\\Desktop\\FoodDeliverySystem-master\\bro\\FoodDeliverySystem-master\\src\\userinterface\\button_login (4).png")); // NOI18N
         loginJButton.setBorderPainted(false);
         loginJButton.setContentAreaFilled(false);
-        loginJButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginJButtonActionPerformed(evt);
             }
         });
 
-        userNameJTextField.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        userNameJTextField.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
         userNameJTextField.setForeground(new java.awt.Color(109, 109, 109));
-        userNameJTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        userNameJTextField.setAlignmentX(0.0F);
         userNameJTextField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 181, 204)));
-
-        passwordField.setFont(new java.awt.Font("Tahoma", 0, 9)); // NOI18N
-        passwordField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        passwordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 181, 204)));
-        passwordField.addActionListener(new java.awt.event.ActionListener() {
+        userNameJTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordFieldActionPerformed(evt);
+                userNameJTextFieldActionPerformed(evt);
             }
         });
 
+        passwordField.setFont(new java.awt.Font("Berlin Sans FB", 0, 12)); // NOI18N
+        passwordField.setForeground(new java.awt.Color(109, 109, 109));
+        passwordField.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 181, 204)));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("username");
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(109, 109, 109));
+        jLabel2.setText("password");
+
         logoutJButton.setBackground(new java.awt.Color(255, 255, 255));
         logoutJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/button_logout (4).png"))); // NOI18N
-        logoutJButton.setBorder(btnSave.getBorder());
         logoutJButton.setBorderPainted(false);
         logoutJButton.setContentAreaFilled(false);
         logoutJButton.setEnabled(false);
-        logoutJButton.setFocusPainted(false);
         logoutJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutJButtonActionPerformed(evt);
@@ -122,120 +126,59 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userinterface/icons8-lunch-64.png"))); // NOI18N
 
-        lblStreet.setFont(new java.awt.Font("Berlin Sans FB", 0, 10)); // NOI18N
-        lblStreet.setForeground(new java.awt.Color(102, 102, 102));
-        lblStreet.setText("username");
-
-        lblStreet1.setFont(new java.awt.Font("Berlin Sans FB", 0, 10)); // NOI18N
-        lblStreet1.setForeground(new java.awt.Color(102, 102, 102));
-        lblStreet1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblStreet1.setText("password");
-
-        btnSave.setBorderPainted(false);
-        btnSave.setContentAreaFilled(false);
-        btnSave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addComponent(loginJLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblStreet1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(79, 79, 79))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(70, 70, 70)
-                .addComponent(lblStreet)
-                .addGap(6, 6, 6)
-                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblStreet1)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(loginJLabel))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(loginJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(logoutJButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54))
+                .addGap(46, 46, 46)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(loginJButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(logoutJButton)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
         container.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout containerLayout = new javax.swing.GroupLayout(container);
-        container.setLayout(containerLayout);
-        containerLayout.setHorizontalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
-        );
-        containerLayout.setVerticalGroup(
-            containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
-        );
-
+        container.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(container);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
-       if(userNameJTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null,"Username and Password field's cannot be empty");
-            return;}
-        else if(system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText()) == null) {
-            JOptionPane.showMessageDialog(null,"Invalid Credentials Please try again");
-            return;
-        }
-       
-       UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
-        
-        CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, restaurantDirectory, customerDirectory,  menuDirectory,deliveryManDirectory, orderDirectory));
-        layout.next(container);
-    }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         logoutJButton.setEnabled(false);
@@ -254,15 +197,32 @@ public class MainJFrame extends javax.swing.JFrame {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_logoutJButtonActionPerformed
 
-    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
+    private void userNameJTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameJTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordFieldActionPerformed
+    }//GEN-LAST:event_userNameJTextFieldActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
+        // Get user name
+        if(userNameJTextField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null,"Username and Password field's cannot be empty");
+            return;
+        }
 
-        // TODO add your handling code here:
-     
-    }//GEN-LAST:event_btnSaveActionPerformed
+        else if(system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText()) == null) {
+            JOptionPane.showMessageDialog(null,"Invalid UserName");
+            return;
+        }
+
+        UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userNameJTextField.getText(), passwordField.getText());
+
+        System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
+
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory));
+        layout.next(container);
+        logoutJButton.setEnabled(true);
+        loginJButton.setEnabled(false);
+    }//GEN-LAST:event_loginJButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,15 +259,13 @@ public class MainJFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSave;
     private javax.swing.JPanel container;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel lblStreet;
-    private javax.swing.JLabel lblStreet1;
     private javax.swing.JButton loginJButton;
-    private javax.swing.JLabel loginJLabel;
     private javax.swing.JButton logoutJButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JTextField userNameJTextField;
